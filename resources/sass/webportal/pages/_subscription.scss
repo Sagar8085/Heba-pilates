@@ -1,0 +1,443 @@
+@use 'sass:math';
+
+.subscriptions {
+    padding-top: 1rem;
+
+    &--cancel {
+        padding-top: 3rem;
+        max-width: 750px;
+    }
+
+    &__title {
+        margin-bottom: .75em;
+    }
+
+    &__subtitle {
+        font-size: 1.5rem;
+    }
+
+    &__title,
+    &__subtitle {
+        line-height: 1.3;
+    }
+
+    &__text {
+        line-height: 1.6;
+        color: $material-grey-700;
+
+        strong {
+            font-weight: bold;
+        }
+    }
+
+    &__buttons {
+        margin-top: 1.5rem;
+
+        .button {
+            + .button {
+                margin-left: .5rem;
+            }
+
+            @media (max-width: $max-sm) {
+                display: flex;
+                width: 100%;
+
+                + .button {
+                    margin-top: .5rem;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    &__list {
+        margin: 1rem -1rem 0 -1rem;
+        display: flex;
+
+        @media (max-width: $max-lg) {
+            flex-direction: column;
+        }
+
+        &__item {
+            padding: 1rem;
+            width: 100%;
+        }
+    }
+}
+
+.subscription-card {
+    background-color: $grey--light;
+    border: 2px solid $primary;
+    border-radius: 0.25rem;
+    color: $app-font-color;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    &--active {
+         background-color: darken($primary, 10%);
+         color: lighten($primary, 30%);
+
+         .subscription-card__header {
+             border-color: lighten($primary, 30%);
+         }
+
+         .subscription-card__list li:before {
+            color: lighten($primary, 10%);
+         }
+    }
+
+    &__title {
+        margin-bottom: 1.2rem;
+    }
+
+    &__subtitle {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1;
+
+        span {
+            font-size: 1.3rem;
+        }
+
+        &--small {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+    }
+
+    &__header,
+    &__content,
+    &__footer {
+        padding: 1.5rem;
+    }
+
+    &__header {
+        border-bottom: 1px solid $material-grey-600;
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__list {
+        &-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            display: flex;
+            line-height: 1.6;
+            font-size: .9rem;
+
+            &:before {
+                content: '\f00c';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                color: $primary;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    &__footer {
+        text-align: center;
+        font-size: 1.2rem;
+
+        .button + p {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.auth-subscription {
+    $col-spacing: 7rem;
+
+    .header {
+        border-bottom: 0;
+        background-color: transparent;
+    }
+
+    &__section {
+        padding: 3rem 0;
+
+        &--hero {
+            .auth-subscription__section__title {
+                font-size: 3rem;
+
+                @media (max-width: $max-sm) {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .page-subtitle {
+            margin-top: 0;
+            color: $material-grey-500;
+        }
+
+        &__title {
+            margin-bottom: 1.5rem;
+        }
+
+        &__subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+        }
+
+        &__cards {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: 1fr;
+            margin-top: 2rem;
+
+            @media (min-width: $min-sm) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem 2rem;
+            }
+
+            @media (min-width: $min-lg) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media (min-width: $min-xl) {
+                gap: $col-spacing;
+            }
+        }
+    }
+
+    &__subsection-container {
+        display: grid;
+        gap: 3rem 0;
+        grid-template-columns: 1fr;
+
+        @media (min-width: $min-sm) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            gap: 3rem 2rem;
+        }
+
+        @media (min-width: $min-lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (min-width: $min-xl) {
+            gap: 0 $col-spacing;
+        }
+    }
+
+    &__subsection {
+        &:first-of-type {
+            grid-column: 1;
+
+            .auth-subscription__section__cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &:last-of-type {
+            grid-row: 2;
+            grid-column: 1 / 3;
+
+            @media (min-width: $min-lg) {
+                grid-column: 2 / 4;
+                grid-row: 1;
+            }
+
+            @media (min-width: $min-xl) {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    width: 1px;
+                    height: 50%;
+                    background-color: $material-grey-500;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    left: math.div(-$col-spacing, 2);
+                }
+            }
+
+            .auth-subscription__section__cards {
+                @media (min-width: $min-sm) {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+        }
+    }
+}
+
+.auth-subscription-card {
+    $spacing: 1.5rem;
+    $font-size: 1.1rem;
+    font-size: $font-size;
+
+    &__header {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: .5rem;
+
+        @media (max-width: $max-sm) {
+            flex-direction: column;
+        }
+
+        .page-subtitle {
+            font-size: $font-size;
+            color: $material-grey-500;
+        }
+    }
+
+    &__price {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-right: 1rem;
+        display: inline-block;
+        line-height: .6em;
+        color: $material-grey-300;
+
+        @media (max-width: $max-sm) {
+            margin: 0 0 .5rem;
+        }
+
+        small {
+            font-size: .5em;
+        }
+    }
+
+    &__title {
+        margin-bottom: $spacing;
+    }
+
+    &__description {
+        margin-bottom: $spacing;
+        color: $material-grey-400;
+    }
+
+    &__footer {
+        margin-top: $spacing;
+        font-size: .9em;
+        color: $material-grey-500;
+    }
+
+    &__visits {
+        font-weight: bold;
+        font-size: 1.75rem;
+        margin-bottom: $spacing;
+
+        small {
+            font-size: $font-size;
+            font-weight: normal;
+            margin-left: .25rem;
+            color: $material-grey-400;
+        }
+    }
+}
+
+.auth-subscription-panel {
+    $mobile-min: 370px;
+    $mobile-max: 369px;
+
+    @media (max-width: $mobile-max) {
+        padding: 1rem 0;
+        font-size: .9em;
+    }
+
+    .wrapper {
+        display: grid;
+        max-width: 650px;
+        gap: .5rem;
+
+        @media (min-width: $mobile-min) {
+            grid-template-columns: auto auto;
+            gap: 1rem;
+        }
+    }
+
+    &__info {
+        font-size: .9em;
+
+        &__title {
+            font-weight: bold;
+            font-size: 1.25rem;
+
+            @media (max-width: $mobile-max) {
+                font-size: 1rem;
+            }
+        }
+
+        &__title,
+        &__description {
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__pricing {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: baseline;
+        gap: .25rem .5rem;
+
+        @media (min-width: $min-sm) {
+            gap: 0 .5rem;
+            grid-template-rows: 1.1rem 1.1rem;
+            align-items: center;
+        }
+
+        .auth-subscription-card__price {
+            font-size: 2rem;
+            line-height: 1;
+            margin: 0;
+
+            @media (min-width: $min-sm) {
+                font-size: 3rem;
+                grid-row: 1 / 3;
+            }
+
+            @media (max-width: $mobile-max) {
+                font-size: 1.5rem;
+            }
+        }
+
+        .auth-subscription-card__price,
+        .page-subtitle,
+        .auth-subscription-card__footer {
+            @media (min-width: $mobile-min) and (max-width: $mobile-max) {
+                grid-column: 1 / 3;
+            }
+        }
+
+        .page-subtitle,
+        .auth-subscription-card__footer {
+            margin: 0;
+            grid-column: 1;
+
+            @media (min-width: $min-sm) {
+                grid-column: 2;
+            }
+        }
+
+        .page-subtitle {
+            @media (max-width: $mobile-max) {
+                grid-column: 2;
+                font-size: .8rem;
+            }
+        }
+
+        .auth-subscription-card__footer {
+            align-self: start;
+
+            @media (max-width: $mobile-max) {
+                grid-column:  1 / 3;
+            }
+        }
+
+    }
+}

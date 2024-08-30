@@ -1,0 +1,23 @@
+.dot {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: .5rem;
+    border-radius: 10px;
+
+    &--green {
+        background-color: $green;
+    }
+
+    &--red {
+        background-color: $red;
+    }
+
+    &--orange {
+        background-color: $orange;
+    }
+
+    &--blue {
+        background-color: $blue;
+    }
+}

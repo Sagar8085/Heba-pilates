@@ -1,0 +1,47 @@
+.star-rating {
+    font-size: 2rem;
+    display: flex;
+
+    i {
+        cursor: pointer;
+
+        &:hover {
+            color: gold;
+        }
+    }
+
+    &--static {
+        .star {
+            cursor: unset;
+            
+            &:hover { 
+                color: $material-grey-600;
+            }
+
+            &--filled:hover {
+                color: gold;
+            }
+        }
+    }
+
+    .star {
+        color: $material-grey-600;
+        margin-right: .5rem;
+        display: inline-block;
+        font-size: inherit;
+
+        &--filled {
+            color: gold;
+        }
+    }
+
+    .gold {
+        color: gold;
+    }
+
+    .green {
+        color: $green;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+}

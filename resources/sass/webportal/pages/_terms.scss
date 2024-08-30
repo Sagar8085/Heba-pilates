@@ -1,0 +1,66 @@
+.terms {
+    &__container {
+        max-width: 600px;
+        padding-top: 2rem;
+    }
+    &__title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    &__text {
+        font-size: .75rem; 
+        letter-spacing: 0.16px;
+    }
+    &__button {
+        margin-top: 2.5rem;
+        background-color: transparent;
+    }
+
+    &__content {
+        line-height: 1.75;
+        word-break: break-word;
+
+        h3 {
+            margin: 1.5em 0 .75em 0;
+        }
+
+        h5 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 1rem 0 0; 
+        }
+
+        ol, ul {
+            margin-left: 1rem;
+
+            + p {
+                margin-top: 1rem;
+            }
+        }
+
+        ol {    
+            list-style: auto;
+        }
+
+        ul {
+            list-style: disc;
+        }
+
+        p + p {
+            margin-top: 1rem;
+        }
+    }
+
+    &__modal {
+        .modal__box {
+            max-width: 1400px;
+        }
+
+        &__text {
+            max-height: 70vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+    }
+}

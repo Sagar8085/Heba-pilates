@@ -1,0 +1,128 @@
+
+
+.onboarding-payment-overview {
+    background: #eee;
+    padding: 2rem;
+    border-radius: 4px;
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    span {
+        display: block;
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+}
+
+
+.payment {
+    margin-bottom: 2rem;
+
+    &__row {
+        margin-top: 2rem;
+
+        &--double {
+            display: flex;
+            flex-wrap: nowrap;
+
+            > div {
+                width: 50%;
+
+                &:first-of-type {
+                    margin-right: 1rem;
+                }
+
+                &:last-of-type {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: .5rem;
+    }
+
+    &__input {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: 2px solid $purple;
+    }
+
+    &__legal {
+        font-size: .75rem;
+        margin-top: 1rem;
+        line-height: 1rem;
+        font-style: italic;
+    }
+
+    &__button {
+        display: block;
+        background: $purple;
+        color: $white;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        border: none;
+        padding: 1rem;
+        width: 100%;
+        border-radius: .25rem;
+        font-weight: 500;
+        font-size: 1rem;
+        text-align: left;
+        position: relative;
+        text-decoration: none;
+
+        &--transfer {
+            width: calc(100% - 2rem);
+            text-align: center;
+            background: $primary;
+        }
+
+        i:not(.inline) {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
+
+        i.inline {
+            margin-right: .5rem;
+        }
+    }
+}
+
+
+.payment-secure {
+    background: $purple;
+    color: $white;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    opacity: 0.85;
+    line-height: 1.25rem;
+
+
+    i {
+        font-size: 3rem;
+    }
+
+    span {
+        width: calc(100% - 50px);
+        padding-left: 1rem;
+    }
+}

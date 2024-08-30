@@ -1,0 +1,120 @@
+.header {
+    $header-height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 51;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    background: $grey--dark;
+    // background: #ec7071;
+    height: $header-height;
+    padding: 0 1rem;
+
+    @media (max-width: $max-lg) {
+        padding-left: 0;
+    }
+
+    .header__menu-toggle {
+        color: white;
+        outline: 0;
+
+        @media (min-width: $min-lg) {
+            display: none;
+        }
+
+        i {
+            margin: 0;
+            max-height: unset;
+        }
+    }
+
+    &__col {
+
+        &--logo {
+            max-width: 300px;
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+        }
+
+        &--right {
+            flex: 1;
+            display: flex;
+            text-align: right;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        max-height: calc($header-height / 2);
+
+        @media (max-width: $max-lg) {
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__logo-text {
+        color: $white;
+        text-decoration: none;
+        font-family: 'Blinker', sans-serif;
+        font-size: 1.45rem;
+        font-style: italic;
+    }
+
+    &__logo-link {
+        color: $white;
+        margin-left: 1.5rem;
+        font-size: .85rem;
+        text-decoration: none;
+
+        span {
+            padding-right: 1rem;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__search.search-input {
+        margin-right: 2rem;
+
+        input {
+            border: 0;
+        }
+
+        @media (max-width: $max-md) {
+            display: none;
+        }
+    }
+
+    &__account {
+        font-size: .85rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            color: $white;
+            text-decoration: none;
+        }
+
+        p {
+            padding-left: .75rem;
+            text-align: left;
+
+            @media (max-width: $max-md) {
+                display: none;
+            }
+        }
+
+        img {
+            border-radius: 30px;
+            height: 30px;
+            width: 30px;
+        }
+    }
+}

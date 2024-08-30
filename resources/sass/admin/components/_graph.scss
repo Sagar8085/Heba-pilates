@@ -1,0 +1,199 @@
+.graph {
+    background: $card-color;
+    border-radius: .5rem;
+    font-family: $lato;
+    display: flex;
+    flex-direction: column;
+
+    &--plain {
+        background-color: transparent;
+        font-family: inherit;
+
+        .graph__header {
+            padding: 0;
+
+            &__title {
+                font-weight: bold;
+            }
+        }
+
+        .graph__container {
+            margin-top: 1rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        padding: 2rem 2rem 1rem 2rem;
+        line-height: 1.3;
+        
+        @media (max-width: $max-sm) {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    &__value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #6517FF;
+        padding: 0 2rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+        line-height: 1.3;
+        
+        @media (max-width: $max-sm) {
+            padding: 0 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        &--green {
+            color: #4DC398;
+        }
+
+        &--blue {
+            color: $blue;
+        }
+
+        &--primary {
+            color: $primary;
+        }
+
+        &--grey {
+            color: $material-grey-400;
+        }
+
+        &--small,
+        small {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        padding: 2rem 1.5rem 1rem 2rem;
+        
+        .form-element__control--select {
+            margin-top: -0.5rem;
+            min-width: 120px;
+        }
+
+        @media (max-width: $max-sm) {
+            flex-direction: column;
+
+            .form-element__control--select {
+                width: 100%;
+                margin-top: 1rem;
+
+                select {
+                    width: 100%;
+                }
+            }
+
+            > .graph__header__info {
+                position: absolute;
+                right: 1.5rem;
+                top: 2rem;
+            }
+        }
+
+
+        &__content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+        }
+        
+        &__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+
+            &--small {
+                font-size: 1rem;
+            }
+
+            .graph__header__info {
+                margin-left: .5rem;
+                font-size: 20px;
+            }
+        }
+
+        &__subtitle {
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+            color: $material-grey-600;
+        }
+
+        &__info {
+            color: $material-grey-500;
+            position: relative;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        select {
+            width: auto;
+            background-color: transparent;
+            font-family: inherit;
+        }
+    }
+
+    &__container {
+        // encase graph component with this to vertically center
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        &--align-bottom {
+            align-items: flex-end;
+        }
+
+        > div {
+            width: 100%;
+        }
+    }
+
+    &__values {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &__container {
+            flex: 1;
+        }
+
+        .graph__value {
+            margin: 0;
+            padding: 0;
+
+            + .graph__value,
+            + .graph__value-diff {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+
+    &__value-diff {
+        background-color: #ffeedb;
+        color: #e69316;
+        padding: 0.1em 0.45em;
+        border-radius: 0.25em;
+        
+        &--positive {
+            background-color: #d4fdcc;
+            color: #339721;
+        }
+
+        &--negative {
+            background-color: #ffe8e8;
+            color: #eb4a4a;
+        }
+    }
+}

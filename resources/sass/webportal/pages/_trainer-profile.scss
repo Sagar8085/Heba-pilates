@@ -1,0 +1,302 @@
+.profile {
+
+    &__title {
+        font-size: 1.8rem;
+        margin: 1rem 0 1.5rem;
+        font-style: italic;
+        color: $material-grey-400;
+        text-align: center;
+
+        + .profile__subtitle {
+            margin-top: -.75rem;
+            font-size: 1.1rem;
+        }
+    }
+    
+    &__intro {
+        max-width: 550px;
+        margin: 0 auto;
+
+        .profile-picture {
+            width: 220px;
+            height: 220px;
+            font-size: 4.5rem;
+
+            @media (max-width: $max-md) {
+                margin: 0 auto;
+            }
+        }
+
+        .profile__title {
+            text-align: left;
+        }
+
+        .page-subtitle {
+            margin-bottom: .5rem;
+        }
+    }
+    
+    &__section {
+        padding: 2rem 0;
+
+        &__content {
+            text-align: center;
+        }
+
+        .video-list {
+            .loading-spinner {
+                text-align: center;
+            }
+        }
+    }
+
+    &__video {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__review {
+        .star-rating {
+            font-size: 1.25rem;
+        }
+
+        &__title {
+            margin: 1rem 0;
+        }
+
+        &__description {
+            line-height: 1.6;
+        }
+
+        + .profile__review {
+            padding-top: 2rem;
+        }
+    }
+
+    &__package {
+        border: 1px solid $material-grey-300;
+        border-radius: 5px;
+        display: flex;
+        padding: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:not(.profile__package--active):not(.profile__package--selected):hover {
+            background-color: $material-grey-50;
+        }
+
+        + .profile__package {
+            margin-top: 1rem;
+        }
+
+        &--active {
+            border-color: $green;
+            background-color: #F8FFF0;
+            cursor: initial;
+
+            @media (max-width: $max-sm) {
+                flex-direction: column;
+
+                .button {
+                    margin-top: 1rem;
+                    width: 100%;
+                }
+            }
+        }
+
+        &--selected {
+            border-color: $blue;
+            background-color: #f5fbff;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        &__content {
+            flex: 1;
+            color: $material-grey-700;
+            text-align: left;
+        }
+
+        &__title {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: $material-grey-800;
+        }
+
+        &__session {
+            color: $material-grey-700;
+
+            &--large {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-right: 1rem;
+            }
+        }
+
+        &-details-modal {
+            max-width: 600px;
+            text-align: left;
+            margin: 0.5rem auto;
+        }
+    }
+}
+
+.availability-calendar {
+    position: relative;
+
+    .loading-spinner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(white, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    &__key {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+
+            &:before {
+                content: '';
+                width: 25px;
+                height: 15px;
+                margin-right: 0.5rem;
+                display: inline-block;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            &--green:before {
+                background-color: $green;
+            }
+
+            &--orange:before {
+                background-color: $orange;
+            }
+
+            &--grey:before {
+                background-color: $material-grey-400;
+            }
+
+            &--light-grey:before {
+                background-color: $material-grey-50;
+                border: 1px solid $material-grey-300;
+            }
+        }
+    }
+}
+
+.profile-card {
+    padding: 1.5rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    background: #333;
+
+    &__video {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__image {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+
+        @media (min-width: $min-sm) {
+            margin-right: 2rem;
+        }
+    }
+
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        padding: .5rem 0 3rem;
+        align-items: center;
+
+        @media (min-width: $min-sm) {
+            flex-direction: row;
+        }
+
+        &__content {
+            @media (max-width: $max-sm) {
+                margin-top: 1rem;
+                text-align: center;
+            }
+        }
+
+        &__subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            color: $material-grey-200;
+        }
+    }
+
+    &__section {
+        padding-bottom: 2rem;
+
+        &__title {
+            font-size: 1.2rem;
+            color: $material-grey-100;
+        }
+
+        &__content,
+        &__list {
+            line-height: 1.6;
+        }
+
+        &__list {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+
+            &--cols {
+                .profile-card__section__list__item {
+                    width: 100%;
+
+                    @media (min-width: $min-sm) {
+                        width: unset;
+                        min-width: calc(100% / 2);
+                    }
+                }
+            }
+
+            &__item {
+                padding-left: 0.25rem;
+
+                + .profile-card__section__list__item {
+                    margin-top: 0.75rem;
+                }
+
+                @media (min-width: $min-sm) {
+                    &:first-child,
+                    &:nth-child(2) {
+                        margin-top: 0;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &__footer {
+        margin-top: 1rem;
+    }
+}

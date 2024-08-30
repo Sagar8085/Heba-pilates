@@ -1,0 +1,55 @@
+.next-journey {
+    margin: 2.5rem auto;
+
+    &__box {
+        background-color: #31332C;
+        padding: 1.5rem;
+        border-radius: .25rem;
+        margin-top: 1rem;
+        background-image: url('/images/img-green-dots.png');
+        background-position: center right 5%;
+        background-size: auto 165%;
+        background-repeat: no-repeat;
+
+        @media(max-width: 1224px) {
+            background-image: none;
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        @media (max-width: 900px) {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 400px;
+            max-height: 250px;
+            border-radius: .25rem;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        div {
+            @media (min-width: $min-sm) {
+                padding: 0 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                margin: 1rem 0;
+            }
+
+            .button {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}

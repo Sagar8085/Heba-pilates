@@ -1,0 +1,22 @@
+.door-access {
+    &__list {
+        margin: 2rem 0 3rem;
+    }
+
+    &__card {
+        @media (min-width: $min-xl) and (max-width: $max-xxl) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-flow: row;
+            gap: 1.5rem 0;
+    
+            .horizontal-card__section:last-child {
+                grid-column: 4;
+                grid-row: 2;
+            }
+        }
+        
+        .profile-picture {
+            margin-right: 1rem;
+        }
+    }
+}

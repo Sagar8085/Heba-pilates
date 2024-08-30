@@ -1,0 +1,173 @@
+.auth {
+    &__wrapper {
+        @include wave-background('right');
+        min-height: calc(100vh - #{$header-height});
+    }
+
+    &__label {
+        display: inline-block;
+        color: #555555;
+        font-size: .75rem;
+        margin-bottom: .5rem;
+
+        &--error {
+            color: $red;
+            font-weight: normal;
+            font-size: 80%;
+            margin-left: 10px;
+        }
+    }
+
+    &__input,
+    &__select {
+        background: lighten(#ffffff, 3%);
+        border: 1px solid #CCACDE;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        font: inherit;
+        outline: none;
+        padding: 1rem;
+        font-size: .85rem;
+        border-radius: .25rem;
+        width: 100%;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: rgba(0,0,0,0.35);
+        }
+    }
+
+
+    &__group {
+        margin-bottom: 1.75rem;
+
+        &--button {
+            margin-top: 1.75rem;
+        }
+
+        &--col-two {
+            display: flex;
+            flex-wrap: nowrap;
+
+            > div {
+                width: 50%;
+
+                &:first-of-type {
+                    padding-right: .85rem;
+                }
+
+                &:last-of-type {
+                    padding-left: .85rem;
+                }
+            }
+
+            .auth__group {
+                margin-bottom: 0;
+            }
+        }
+
+        &--col-three {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-bottom: 0;
+
+            > div {
+                width: calc(100% / 3);
+
+                &:nth-child(2) {
+                    padding-left: .85rem;
+                    padding-right: .85rem;
+                }
+            }
+        }
+
+        &--forgot {
+            margin-top: 1.75rem;
+            text-align: center;
+            font-size: .65rem;
+
+            &--signup {
+                color: $material-grey-500;
+            }
+
+            a {
+                text-decoration: none;
+                color: $primary;
+            }
+        }
+    }
+
+    &__gender-pick {
+        margin: 1rem 1rem;
+        width: 100%;
+
+        input[type=radio]+label {
+            text-align: center;
+            // margin: auto;
+            padding: 15px 12.5px;
+            display: inline-block;
+            width: 105px;
+            border-radius: 30px;
+            background: #DDDDDD 0% 0% no-repeat padding-box;
+            cursor: pointer;
+        }
+        input[type=radio]:checked+label {
+            transition: background 1s ease;
+            background: #E9CAFA 0% 0% no-repeat padding-box;
+        }
+        input[type=checkbox]:not(old),
+        input[type=radio]:not(old) {
+            display: none;
+        }
+    }
+
+    &__button {
+        display: block;
+        background: $purple;
+        color: $white;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        border: none;
+        padding: 1rem;
+        width: 100%;
+        border-radius: .25rem;
+        font-weight: 500;
+        font-size: 1rem;
+        margin: 1rem 0 0 0;
+
+        &__small {
+            width: 25%;
+            background: $purple;
+            color: $white;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            border: none;
+            padding: .75rem;
+            border-radius: .25rem;
+            font-weight: 500;
+            font-size: 1rem;
+            margin: 0 1rem 0 0;
+            cursor: pointer;
+        }
+        &__cancel {
+            width: 25%;
+            background: #DDDDDD;
+            color: #5A5A5A;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            border: none;
+            padding: .75rem;
+            border-radius: .25rem;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    }
+}

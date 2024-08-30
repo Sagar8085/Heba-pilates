@@ -1,0 +1,322 @@
+.header__account__notifications {
+    > a {
+        position: relative;
+        align-items: center;
+
+        &:after {
+            content: '';
+            background-color: #f75252;
+            border-radius: 50px;
+            height: 10px;
+            width: 10px;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -4px;
+            border: 1px solid white;
+            opacity: 0;
+
+            @media (max-width: $max-lg) {
+                display: none;
+            }
+        }
+    }
+
+    &.active {
+        .notifications-popup__footer {
+            .button {
+                color: $primary;
+            }
+        }
+    }
+
+    &--new {
+        > a:after {
+            opacity: 1;
+        }
+    }
+}
+
+$notifications-padding-h: 1.25rem;
+
+.notifications-popup {
+    background-color: white;
+    border-radius: .5rem;
+    width: 450px;
+    min-height: 100px;
+    border: 1px solid $material-grey-300;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 10;
+    padding: 1.5rem 0;
+    box-shadow: 0 3px 10px rgba(black, 0.2);
+
+    &__title {
+        color: $material-grey-800;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 0.75rem;
+        padding: 0 $notifications-padding-h;
+    }
+
+    &__close.button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $material-grey-700;
+
+        .fas {
+            font-size: .9rem;
+        }
+
+        &:hover {
+            color: $material-grey-800;
+        }
+    }
+
+    &__footer {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 $notifications-padding-h;
+        
+        .button, .button:hover {
+            color: $primary;
+        }
+    }
+
+    .button {
+        width: unset;
+        font-size: .9rem;
+    }
+
+    .notifications {
+        background-color: $material-grey-50;
+
+        .notification {
+            padding-top: 1rem;
+
+            &__date {
+                padding: 0 1rem;
+            }
+
+            &__card {
+                border-left: 0;
+                border-right: 0;
+                box-shadow: none;
+                border-radius: 0;
+                color: $material-grey-700;
+            }
+        }
+    }
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+
+    .notification {
+        display: block;
+        margin: 0;
+        padding-top: 1.25rem;
+        font-size: 1rem;
+
+        &--seen {
+            .notification__card {
+                background-color: $material-grey-100;
+            }
+            
+            .notification__header__icon {
+                background-color: $material-grey-300;
+                color: $material-grey-500;
+            }
+        }
+
+        &--interactive {
+            .notification__card {
+                cursor: pointer;
+            }
+        }
+
+        &__date {
+            font-size: .8em;
+            color: $material-grey-500;
+            margin-bottom: .5rem;
+            display: block;
+        }
+
+        &__card {
+            background-color: white;
+            border: 1px solid $material-grey-200;
+            box-shadow: 0px 3px 40px rgba(black, 0.05);
+            border-radius: .5rem;
+            padding: 1rem .5rem 1rem $notifications-padding-h;
+            display: flex;
+            align-items: center;
+
+            &__content {
+                flex: 1;
+            }
+        }
+
+        &__header {
+            display: flex;
+            align-items: center;
+            
+            &__icon {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+                font-size: 1.1em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: .75em;
+
+                i {
+                    font-size: inherit;
+                }
+                
+                &,
+                &--blue {
+                    background-color: lighten($blue, 40%);
+                    color: $blue;
+                }
+                &--green {
+                    background-color: lighten($green, 35%);
+                    color: $green;
+                }
+                &--red {
+                    background-color: lighten($red, 33%);
+                    color: $red;
+                }
+            }
+        }
+
+        &__title {
+            flex: 1;
+            font-weight: 600;
+            color: $material-grey-800;
+        }
+        
+        &__description {
+            color: $material-grey-700;
+            font-size: 0.9em;
+            margin-top: .5em;
+        }
+
+        &__menu-button {
+            outline-width: 0;
+            color: $material-grey-700;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: $material-grey-100;
+            }
+        }
+        
+        &__menu-container {
+            position: relative;
+        }
+
+        &__menu {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 30px;
+            right: 0;
+            background-color: white;
+            border: 1px solid $material-grey-200;
+            border-radius: .5rem;
+            z-index: 9;
+            box-shadow: 0 3px 10px $material-grey-600;
+            overflow: hidden;
+
+            .button {
+                color: $material-grey-800;
+                font-size: 0.8rem;
+                border-radius: 0;
+                justify-content: flex-start;
+                padding-left: 1em;
+                padding-right: 1em;
+                white-space: nowrap;
+                height: 44px;
+                line-height: .95rem;
+
+                i {
+                    color: $material-grey-600;
+                }
+
+                &:hover {
+                    background-color: $material-grey-50;
+                }
+            }
+        }
+    }
+}
+
+.notifications-page {
+    margin-bottom: 5rem;
+
+    &__header {
+        margin-top: .75rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+
+        @media (max-width: $max-sm) {
+            align-items: flex-end;
+            justify-content: flex-end;
+
+            h1 {
+                margin-bottom: 1.5rem;
+            }
+
+            .button {
+                margin-bottom: 1rem;
+            }
+        }
+
+        h1 {
+            flex: 1;
+        }
+    }
+
+    .notification {
+        @media (max-width: $max-sm) {
+            &__card {
+                padding-left: 1rem;
+                padding-right: 0;
+            }
+        }
+
+        @media (min-width: $min-sm) {
+            font-size: 1.1rem;
+        }
+
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    .notifications--no-data {
+        .notification__card {
+            background-color: transparent;
+            box-shadow: none;
+            border: 0;
+            padding: 0;
+        }
+    }
+}
+
+.notifications-enter-active, .notifications-leave-active {
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    transform: scale(1);
+    transform-origin: top right;
+}
+.notifications-enter, .notifications-leave-to {
+    opacity: 0;
+    transform: scale(0.5);
+}

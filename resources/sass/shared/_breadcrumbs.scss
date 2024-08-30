@@ -1,0 +1,42 @@
+.breadcrumbs {
+    display: flex;
+    margin-bottom: 3rem;
+
+    @media (max-width: $max-sm) {
+        flex-direction: column;
+    }
+
+    &__item {
+        color: $material-grey-400;
+
+        &:last-child {
+            color: $material-grey-300;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+                color: $primary;
+            }
+        }
+
+        + .breadcrumbs__item {
+            &:before {
+                content: '>';
+                padding: 0 .5rem;
+                color: $material-grey-400;
+            }
+            @media (max-width: $max-sm) {
+                margin-top: .5rem;
+
+                &:before {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}

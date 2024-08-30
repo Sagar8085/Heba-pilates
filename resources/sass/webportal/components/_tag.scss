@@ -1,0 +1,32 @@
+.tag {
+    background-color: #E6F5FF;
+    color: $primary;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 0.3rem 0.7rem;
+    border-radius: 3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+
+    &--green {
+        background-color: $green;
+        color: $white;
+    }
+
+    &--white {
+        background-color: white;
+        color: $primary;
+    }
+
+    &--solid {
+        background: $primary;
+        color: white;
+    }
+
+    &--outline {
+        background: white;
+        border: 2px solid $primary;
+        color: $primary;
+    }
+}

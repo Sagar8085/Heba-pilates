@@ -1,0 +1,19 @@
+.draggable {
+
+
+    > div {
+        cursor: move;
+        margin-bottom: .5rem;
+        display: block;
+        width: 100%;
+        background: #FAFAFA;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: .25rem;
+        padding: 1rem;
+
+        &.sortable-chosen {
+            background: $primary;
+            color: $white;
+        }
+    }
+}

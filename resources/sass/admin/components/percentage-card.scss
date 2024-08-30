@@ -1,0 +1,45 @@
+.percentage-card {
+    background: rgba(51, 146, 208, 0.045);
+    padding: 1rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    color: #444;
+    display: block;
+    height: 100%;
+
+    &__title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    &__value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $primary;
+
+        span {
+            display: block;
+            font-size: .75rem;
+            font-weight: 400;
+            color: #888;
+            margin-top: .5rem;
+        }
+    }
+
+    &__circle {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        height: 150px;
+        color: $primary;
+
+        .inner-text {
+            font-size: 3rem!important;
+        }
+    }
+
+    &__info {
+        font-size: 0.55rem;
+        line-height: 0.65rem;
+        font-style: italic;
+    }
+}

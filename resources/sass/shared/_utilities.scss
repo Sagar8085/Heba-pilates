@@ -1,0 +1,34 @@
+.sticky-panel {
+    position: sticky;
+    width: 100%;
+    background-color: white;
+    padding: 1.5rem 0;
+    left: 0;
+    z-index: 10;
+
+    @media (min-width: $min-md) {
+        padding: 2rem 0;
+    }
+    &--bottom {
+        bottom: 0;
+        border-top: 1px solid $material-grey-300;
+    }
+}
+
+.fixed-panel {
+    position: fixed;
+    width: 100%;
+    background-color: $grey--light;
+    border-top: 1px solid $material-grey-500;
+    padding: 1.5rem 0;
+    left: 0;
+    z-index: 10;
+
+    &--bottom {
+        bottom: 0;
+    }
+}
+
+.material-icons {
+    user-select: none;
+}

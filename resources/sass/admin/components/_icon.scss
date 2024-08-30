@@ -1,0 +1,24 @@
+.icon {
+    color: $white;
+    border-radius: 35px;
+    margin-right: 1rem;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary;
+
+    i {
+        font-size: 1.25rem;
+
+        &.fas {
+            font-size: 1rem;
+        }
+    }
+
+    img {
+        background: none;
+        margin-right: 0;
+    }
+}

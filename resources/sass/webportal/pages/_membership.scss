@@ -1,0 +1,44 @@
+.membership {
+    .horizontal-card {
+        @media (max-width: $max-sm) {
+            .button {
+                width: 100%;
+            }
+        }
+
+        &:not(.horizontal-card--no-button) {
+            @media (min-width: $min-sm) {
+                .horizontal-card__section:last-child {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    .subscriptions__list {
+        @media (max-width: $max-xl) {
+            flex-direction: column;
+        }
+    }
+
+    &__credit-packs {
+        .horizontal-card {
+            margin-bottom: 0;
+            height: 100%;
+
+            @media (min-width: $min-sm) {
+                .horizontal-card__section:last-child {
+                    grid-column: 3;
+                    padding-left: 0;
+                }
+            }
+
+            @media (min-width: $min-xl) and (max-width: $wrapper-size) {
+                .horizontal-card__section:first-child {
+                    white-space: normal;
+                }
+            }
+        }
+    }
+}

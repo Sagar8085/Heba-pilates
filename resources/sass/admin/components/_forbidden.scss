@@ -1,0 +1,50 @@
+.forbidden {
+    text-align: center;
+    padding: 10rem 0 5rem 0;
+
+    &--small {
+        padding: 5rem 0;
+    }
+
+    &--smallest {
+        padding: 2.5rem 0;
+    }
+
+    &--no-padding {
+        padding: 0;
+    }
+
+    &--full {
+        height: 80vh;
+        display: flex;
+        padding: 0 2.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--boxed {
+        background: rgba(51, 146, 208, 0.045);
+    }
+
+    img {
+        width: 92%;
+        max-width: 400px;
+        margin: auto;
+
+        &.small {
+            max-height: 200px;
+        }
+    }
+
+    h2 {
+        display: block;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    p {
+        display: block;
+        margin-top: 1.5rem;
+    }
+}

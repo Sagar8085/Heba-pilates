@@ -1,0 +1,97 @@
+.studio {
+    
+    .card-list .card:first-child {
+        margin-top: 2rem;
+    }
+
+    &__map.google-map {
+        height: 300px;
+    }
+
+    &__map--large.google-map {
+        min-height: 70vh;
+    }
+
+    &__search {
+        padding: 0;
+        margin-bottom: 1.5rem;
+
+        input {
+            padding: 1rem 0 1rem 1rem;
+        }
+
+        .form-input__after {
+            padding-right: 1rem;
+            color: $material-grey-700;
+        }
+    }
+
+    &__location {
+        font-size: 1.1rem;
+        line-height: 1.5;
+
+        .google-map {
+            margin-bottom: 1rem;
+        }
+
+        &__address {
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__section {
+        padding-bottom: 1.5rem;
+
+        &.row .columns {
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            @media (max-width: $max-md) {
+                &.text-right {
+                    text-align: left;
+                }
+            }
+
+            @media (min-width: $min-md) {
+                margin-bottom: 0;
+            }
+        }
+
+        &--bordered,
+        &--large {
+            padding-bottom: 2.5rem;
+        }
+
+        .row--center-v {
+            @media (max-width: $max-md) {
+                .text-right {
+                    text-align: left;
+                    margin: 0;
+                }
+            }
+            @media (min-width: $min-md) {
+                .columns {
+                    margin: 0;
+                }
+            }
+        }
+        
+        + .studio__section {
+            padding-top: 1.5rem;
+
+            &--bordered {
+                border-top: 1px solid $material-grey-600;
+                padding-top: 2.5rem;
+            }
+        }
+
+        &__content {
+            flex: 1;
+        }
+    }
+}
+
+.opening{
+    margin-top: 40px;
+}

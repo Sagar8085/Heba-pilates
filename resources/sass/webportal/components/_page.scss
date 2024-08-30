@@ -1,0 +1,36 @@
+.page-header {
+    padding: 1.25rem 0;
+    background-color: $primary;
+    color: white;
+
+    h1 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+}
+
+.page-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    min-height: 80vh;
+}
+
+.page-subtitle {
+    text-transform: uppercase;
+    font-size: .85rem;
+    margin: 1rem 0;
+    font-weight: 500;
+    color: $material-grey-400;
+    display: flex;
+    align-items: center;
+
+    &--primary {
+        font-weight: 600;
+        color: $primary;
+    }
+
+    i {
+        margin-right: .5rem;
+    }
+}

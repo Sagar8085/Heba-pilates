@@ -1,0 +1,113 @@
+.no-sessions {
+    background: #f7fafd;
+    padding: 2rem;
+    margin-top: 2rem;
+
+    &__text {
+        font-style: italic;
+        font-weight: 700;
+    }
+
+    &__button {
+        display: inline-block;
+        text-decoration: none;
+        font-style: italic;
+        background: $purple;
+        color: $white;
+        outline: none;
+        border: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: .25rem;
+        padding: .75rem 1.5rem;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+}
+
+.session {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: calc(100% - 4rem);
+    background: #f7fafd;
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: .25rem;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+
+    &__wrap {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__main {
+        width: calc(100% - 350px);
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    &__side {
+        width: 350px;
+        text-align: right;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            text-align: left;
+            margin-top: 1rem;
+        }
+    }
+
+    &__button {
+        display: inline-block;
+        background: $purple;
+        color: $white;
+        outline: none;
+        border: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        font-weight: 700;
+        font-size: 1.25rem;
+        border-radius: .25rem;
+        padding: .75rem 1.5rem;
+        opacity: .35;
+        cursor: not-allowed;
+        text-decoration: none;
+
+        &--active {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+
+    &__info {
+        font-size: .65rem;
+        font-style: italic;
+        display: block;
+        margin-top: .5rem;
+        line-height: 1rem;
+    }
+
+    &__time {
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+
+    &__trainer {
+        display: block;
+        margin-top: .5rem;
+        font-style: italic;
+    }
+}

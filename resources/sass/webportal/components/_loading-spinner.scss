@@ -1,0 +1,14 @@
+.loading-spinner {
+    color: $material-grey-400;
+
+    .fa-spinner {
+        color: $primary;
+        margin-right: .5rem;
+    }
+
+    &--no-data {
+        .button {
+            margin-top: 1rem;
+        }
+    }
+}

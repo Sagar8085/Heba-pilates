@@ -1,0 +1,189 @@
+.subscription-lp {
+    $promo-color: #f18626;
+
+    @mixin isColumns {
+        @media (min-width: $min-xl) {
+            @content;
+        }
+    }
+
+    a {
+        color: inherit;
+    }
+
+    ul {
+        list-style: disc;
+        margin-left: 1rem;
+
+        li {
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 1.2;
+
+            small {
+                font-size: .75em;
+            }
+        }
+    }
+
+    .app-wrap {
+        background-color: white;
+        color: $material-grey-900;
+        padding: 3rem 1rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        @include isColumns {
+            padding: 7.5rem 1rem;
+        }
+    }
+
+    .footer {
+        display: none;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 500px;
+
+        @include isColumns {
+            max-width: 975px;
+        }
+    }
+
+    &__container {
+        display: grid;
+        gap: 2em;
+        position: relative;
+        width: 100%;
+
+        &--promo {
+            .subscription-lp__info > .subscription-lp__title {
+                color: $promo-color;
+            }
+        }
+        
+        @include isColumns {
+            grid-template-columns: repeat(2, 1fr);
+
+            .subscription-lp__info {
+                border-right: 5px solid $material-grey-900;
+                padding-right: 2em;
+            }
+        }
+
+        @media (min-width: $min-xxl) {
+            gap: 3em;
+
+            .subscription-lp__info {
+                padding-right: 3em;
+            }
+        }
+    }
+
+    &__grid {
+        display: grid;
+        gap: 1em;
+    }
+
+    &__form {
+        display: grid;
+        gap: .5em;
+    }
+
+    &__subtitle {
+        text-transform: uppercase;
+        color: $material-grey-700;
+        letter-spacing: .1rem;
+        font-size: 1.15rem;
+        margin-bottom: .25em;
+    }
+
+    &__title {
+        font-family: $reader;
+        font-weight: 900;
+        font-style: italic;
+        color: $material-grey-900;
+        font-size: 2.25rem;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+
+        &--light {
+            font-weight: 300;
+            font-style: normal;
+            margin: 0;
+            font-size: 1.7rem;
+        }
+
+        &--medium {
+            font-size: 1.75rem;
+            margin-bottom: .5rem;
+        }
+
+        &--small {
+            font-size: 1rem;
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__promo {
+        color: $promo-color;
+        margin-bottom: 1rem;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+
+        @include isColumns {
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__logo {
+        justify-self: end;
+        display: flex;
+        position: relative;
+        margin-top: 2rem;
+
+        &::after {
+            $width: 220px;
+            $height: 141px;
+
+            content: '';
+            background-image: url(/images/hebe-wave-blue.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: $width;
+            height: $height;
+            position: absolute;
+            right: calc(-#{$width} / 2.25);
+            top: calc(-#{$height} / 1.5);
+        }
+
+        @include isColumns {
+            $height: 20px;
+
+            position: absolute;
+            top: calc(-#{$height} - 1rem);
+            right: 0;
+            height: $height;
+            margin: 0;
+        }
+    }
+
+    .form-input--focused,
+    .form-input--filled,
+    .form-input--static {
+        .auth__label {
+            color: $material-grey-900;
+            font-weight: 500;
+        }
+    }
+}

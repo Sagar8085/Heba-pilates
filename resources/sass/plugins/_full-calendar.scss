@@ -1,0 +1,126 @@
+.fc-unthemed.fc {
+    .fc-button-primary {
+        &.fc-prev-button,
+        &.fc-next-button {
+            color: $material-grey-600;
+            border-color: transparent;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 0;
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none;
+                background-color: transparent;
+                border-color: transparent;
+                color: $material-grey-600;
+            }
+
+            &:not(:disabled){
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $material-grey-100;
+                    color: $material-grey-600;
+                    border-color: transparent;
+                }
+            }
+    
+        }
+    }
+
+    .fc-toolbar h2 {
+        font-size: 1.3rem;
+        color: $material-grey-700;
+        font-weight: 700;
+    }
+
+    .fc-timeGridWeek-view {
+
+        .fc-head-container {
+            border-top-color: transparent;
+            border-left-color: transparent;
+
+            $date-size: 22px;
+
+            .fc-today {
+                .fc-day-header-date {
+                    background-color: $purple;
+                    width: $date-size;
+                    border-radius: 50%;
+                    display: flex;
+                    margin: 0 auto;
+                    color: white;
+                }
+            }
+    
+            .fc-day-header-day {
+                text-transform: uppercase;
+                color: $material-grey-600;
+                font-size: 0.6rem;
+                font-weight: 600;
+                display: block;
+                line-height: 1.2;
+            }
+    
+            .fc-day-header-date {
+                color: $material-grey-800;
+                font-weight: 600;
+                height: $date-size;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.9rem;
+                margin-bottom: 0.25rem;
+            }
+        }
+    
+        .fc-body > tr > .fc-widget-content {
+            border-left-color: transparent;
+        }
+
+        .fc-axis.fc-time {
+            color: $material-grey-800;
+            background-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    }
+
+    .fc-bg {
+        .fc-day {
+            background-color: $material-grey-50;
+        }
+    }
+
+    .fc-time-grid {
+        min-height: unset;
+        max-height: 500px;
+    }
+
+    .fc-event {
+        display: flex;
+
+        &--selectable {
+            cursor: pointer;
+        }
+
+        .fc-content {
+            display: flex;
+            align-items: center;
+
+            .fc-title {
+                margin-left: 0.25rem;
+
+                @media (max-width: $max-sm) {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+/* Admin overrides for shared/horizontal-card.scss */
+
+.horizontal-card {
+    background-color: white;
+    box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
+    
+    &__section {
+        border-color: $material-grey-300;
+
+        .page-subtitle {
+            color: $material-grey-600;
+        }
+    }
+}

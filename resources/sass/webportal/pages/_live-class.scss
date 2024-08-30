@@ -1,0 +1,57 @@
+.live-class {
+    .page-subtitle:first-of-type {
+        margin-top: 0;
+    }
+
+    &__title {
+        margin: 1rem 0 1.5rem;
+        font-weight: normal;
+
+        &--no-top {
+            margin-top: 0;
+        }
+    }
+
+    &__time {
+        padding: .5rem .75rem;
+        border: 1px solid $primary;
+        color: $primary;
+        font-weight: 600;
+        border-radius: .25rem;
+        display: inline-block;
+        margin-right: 1.5rem;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        margin: 1rem 0 1.5rem;
+    }
+
+    &__details {
+        line-height: 1.75;
+
+        strong {
+            font-weight: 600;
+
+            &:after {
+                content: ':';
+                margin-right: .25rem;
+            }
+        }
+    }
+
+    &__trainer {
+        font-size: 1.1rem;
+        color: $material-grey-800;
+
+        img {
+            $size: 50px;
+            width: $size;
+            height: $size;
+            border-radius: $size;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+    }
+}

@@ -1,0 +1,273 @@
+.landing {
+    font-size: 1.25rem;
+    line-height: 1.6;
+
+    &__section {
+        position: relative; 
+        background-color: white;
+
+        &--hero,
+        &--apps {
+            @media (max-width: $max-lg) {
+                // Overlay background image
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: rgba(#ccd6da, .75);
+                }
+            }
+        }
+
+        &--hero {
+            background-image: url(/images/landing-page/hero-banner.png);
+            background-position: 25%;
+            background-size: cover;
+            
+            @media (min-width: $min-lg) {
+                background-position: center;
+            }
+
+            .landing__section__container {
+                justify-content: flex-end;
+            }
+
+            .landing__section__title {
+                font-size: 3rem;
+
+                @media (max-width: $max-sm) {
+                    font-size: 2.25rem;
+                }
+            }
+
+            .landing__section__col {
+                @media (min-width: $min-lg) {
+                    max-width: 700px;
+                }
+            }
+
+            .landing__section__text {
+                margin-bottom: 2rem;
+                max-width: 530px;
+            }
+        }
+
+        &--features {
+            .landing__section__col {
+                position: relative;
+
+                + .landing__section__col {
+                    @media (max-width: $max-lg) {
+                        padding-top: 0;
+                    }
+                }
+            }
+
+            .landing__section__col--auto {
+                height: 650px;
+
+                img {
+                    height: 100%;
+                }
+
+                @media (max-width: $max-lg) {
+                    display: none;
+                }
+
+                @media (max-width: $max-xl) {
+                    position: absolute;
+                    left: -3rem;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        background-color: rgba(#edf5fb, .85);
+                    }
+                }
+
+            }
+        }
+
+        &--founder {
+            .landing__section__col {
+                iframe {
+                    max-width: 100%;
+
+                    @media (max-width: $max-sm) {
+                        height: 230px;
+                    }
+
+                    @media (max-width: $max-md) {
+                        width: 100%;
+                    }
+                }
+            }
+            .landing__section__col + .landing__section__col {
+                @media (min-width: $min-lg) {
+                    padding-left: 3.5rem;
+
+                    .landing__section__title {
+                        max-width: 500px;
+                    }
+                }
+            }
+        }
+
+        &--apps {
+            background-image: url('/images/landing-page/1.6 JUST DANCE.png');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            
+            @media (min-width: $min-lg) {
+                background-position: left;
+            }
+
+            &:before {
+                background-color: rgba(black, .5);
+            }
+
+            .landing__section__title {
+                color: white;
+            }
+
+            .landing__section__subtitle {
+                color: $material-grey-100;
+            }
+        }
+
+        &:nth-of-type(even) {
+            background-color: #edf5fb;
+            background-image: url(/images/landing-page/Landing-page-bg.png);
+        }
+
+        &__container {
+            @include content-wrapper;
+            min-height: 500px;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+
+            @media (max-width: $max-sm) {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            @media (min-width: $min-sm) and (max-width: $max-lg) {
+                max-width: 600px;
+            }
+
+            @media (min-width: $min-lg) {
+                flex-direction: row;
+            }
+        }
+
+        &__col {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &--auto {
+                width: auto;
+            }
+
+            &--center {
+                text-align: center;
+                align-items: center;
+            }
+
+            + .landing__section__col {
+                padding-top: 2rem;
+
+                @media (min-width: $min-lg) {
+                    padding-left: 5rem;
+                    padding-top: 0;
+                }
+            }
+        }
+
+        &__title {
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            font-size: 2.5rem;
+            color: $material-grey-900;
+
+            @media (max-width: $max-sm) {
+                font-size: 2rem;
+            }
+
+            span {
+                display: block;
+            }
+        }
+
+        &__subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: $material-grey-800;
+            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        &__text {
+            color: $material-grey-800;
+        }
+
+        &__apps {
+            a {
+                margin-right: 1rem;
+            }
+        }
+
+        &__features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        &__feature {
+            padding: 2rem 1rem;
+            width: 100%;
+            max-width: 300px;
+
+            @media (min-width: $min-sm) {
+                max-width: calc(100% / 2);
+                padding: 2rem;
+            }
+            
+            @media (min-width: $min-lg) {
+                max-width: calc(100% / 3);
+            }
+
+            &__image {
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+            }
+
+            &__title {
+                margin-bottom: 1rem;
+            }
+
+            &__description {
+                color: $material-grey-700;
+            }
+        }
+    }
+}

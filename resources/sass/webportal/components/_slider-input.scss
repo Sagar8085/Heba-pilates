@@ -1,0 +1,94 @@
+@use 'sass:math';
+
+.slider-input {
+    $thumb-size: 40px;
+
+    @mixin rangeThumb {
+        width: $thumb-size;
+        height: $thumb-size;
+        margin: math.div(-$thumb-size, 2) 0 0;
+        border-radius: 50%;
+        background: $primary;
+        cursor: pointer;
+        border: 0 !important;
+    }
+      
+    @mixin rangeTrack {
+        $size: 5px;
+
+        width: 100%;
+        height: $size;
+        cursor: pointer;
+        background: $material-grey-400;
+        border-radius: $size;
+    }
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: calc($thumb-size / 2);
+    user-select: none;
+
+    &__labels {
+        display: flex;
+        margin-bottom: 2.5rem;
+        justify-content: space-between;
+
+        li {
+            width: $thumb-size;
+            font-weight: 600;
+            font-size: 1.25rem;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 0;
+        -webkit-appearance: none;
+      
+        // Thumb
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none; // needed again for Chrome & Safari
+            @include rangeThumb;
+        }
+      
+        &::-moz-range-thumb {
+            @include rangeThumb;
+        }
+      
+        &::-ms-thumb {
+            @include rangeThumb;
+        }
+      
+        // Track
+        &::-webkit-slider-runnable-track {
+            @include rangeTrack;
+        }
+      
+        &::-moz-range-track {
+            @include rangeTrack;
+        }
+      
+        &::-ms-track {
+            @include rangeTrack;
+        }
+      
+        &:focus { // override outline/background on focus
+            background: none;
+            outline: none;
+        }
+      
+        &::-ms-track { // Internet explorer
+            width: 100%;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+    }
+}

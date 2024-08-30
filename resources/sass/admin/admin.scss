@@ -1,0 +1,294 @@
+@import './../plugins/reset';
+@import './../plugins/variables';
+@import './../shared/breadcrumbs';
+
+$sidebar-width: 230px;
+$blue: #1296ED;
+$card-color: rgba(51,146,208, 0.045);
+
+html,
+body {
+    font-family: 'Blinker', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.colour {
+
+    &--red {
+        color: $red;
+    }
+     &--blue{
+        color: $blue;
+    }
+}
+
+.cursor {
+
+    &--pointer {
+        cursor: pointer;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.disabled {
+    opacity: .5;
+    cursor: not-allowed!important;
+}
+
+small {
+    font-size: 1rem;
+
+    &.extra-small {
+        font-size: .75rem;
+    }
+
+    &.bottom {
+        display: inline-block;
+        padding-bottom: 1rem;
+    }
+}
+
+@mixin content-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+    max-width: 1500px;
+    width: 100%;
+}
+
+.page {
+    width: 100%;
+
+    &--authed {
+        padding-top: 50px;
+
+        @media (min-width: $min-lg) {
+            width: calc(100% - #{$sidebar-width});
+            margin-left: $sidebar-width;
+        }
+    }
+
+    &-content {
+        padding: 1rem;
+
+        @media (min-width: $min-sm) {
+            padding: 2rem;
+        }
+
+        &--no-top {
+            padding-top: 0;
+        }
+
+        &--small-top {
+            padding-top: .5rem;
+        }
+
+        &--top {
+            margin-top: 2.5rem;
+        }
+
+        &--no-bottom {
+            padding-bottom: 0;
+        }
+
+        &__subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &-section {
+        margin-bottom: 2rem;
+
+        @media (max-width: $max-sm) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+
+        small {
+            color: #444;
+        }
+
+        &--top {
+            margin-top: 1.5rem;
+        }
+
+        &--bottom {
+            margin-bottom: 3rem;
+        }
+
+        &--secondary {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+
+            i {
+                margin-right: .5rem;
+            }
+        }
+
+        &--red {
+            color: $red;
+        }
+    }
+}
+
+.back {
+    padding: 1rem 2rem 1rem 2rem;
+    border-bottom: 1px solid $grey;
+
+    @media (max-width: $max-sm) {
+        padding-left: .5rem;
+    }
+
+    &--no-border {
+        border-bottom: 0;
+    }
+
+    &__link,
+    a {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        outline: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        color: $primary;
+        font-size: .75rem;
+        text-decoration: none;
+    }
+
+    img {
+        height: 12px;
+    }
+}
+
+.status {
+    display: flex;
+    align-items: center;
+
+    &:before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: block;
+        margin-right: .5rem;
+        background-color: $material-grey-400;
+    }
+
+    &--active:before,
+    &--working:before {
+        background-color: #A0CF5D;
+    }
+
+    &--maintenance:before {
+        background-color: #EA0D40;
+    }
+}
+
+.breadcrumbs {
+    margin-bottom: 1rem;
+    padding: 1rem 1rem 0;
+
+    @media (min-width: $min-sm) {
+        padding: 2rem 2rem 0;
+    }
+
+    &__item {
+        color: $material-grey-600;
+
+        &:last-child {
+            color: $material-grey-900;
+        }
+
+        + .breadcrumbs__item:before {
+            color: $material-grey-700;
+        }
+    }
+}
+
+body.sidebar-open {
+    @media (max-width: $max-lg) {
+        overflow: hidden;
+    }
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+// Vue Transitions
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.fa-times--red {
+    color: $red;
+}
+
+@import 'views/lead-management';
+@import 'components/button';
+@import 'components/auth';
+@import 'components/header';
+@import 'components/sidebar';
+@import 'components/page-header';
+@import 'components/forbidden';
+@import 'components/list';
+@import '../shared/grid';
+@import 'components/pagination';
+@import 'components/dot';
+@import 'components/icon';
+@import 'components/form';
+@import 'components/form-element';
+@import 'components/chat';
+@import 'components/modal';
+@import 'components/modal-alert';
+@import 'components/info';
+@import 'components/tab';
+@import 'components/dashboard';
+@import 'components/graph';
+@import 'components/card';
+@import 'components/percentage-card';
+@import 'components/data-table';
+@import '../shared/slider';
+@import 'components/session-list';
+@import 'components/results-table';
+@import 'components/table';
+@import 'components/general';
+@import 'components/tag';
+@import 'components/timeslot-table';
+@import 'components/tooltip';
+@import 'components/draggable';
+@import 'components/leadstab';
+@import 'components/filters';
+@import '../shared/button-options';
+@import '../shared/booking-card';
+@import '../shared/utilities';
+@import '../shared/profile-picture';
+@import '../shared/horizontal-card';
+@import 'components/horizontal-card';
+@import 'components/reporting-filters';
+@import 'components/toggle-switch';
+@import 'components/datepicker';
+@import 'views/door-access';
+
+// @import '../plugins/full-calendar';

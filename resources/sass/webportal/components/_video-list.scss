@@ -1,0 +1,271 @@
+.video-list {
+    + .video-list {
+        padding-top: 2rem;
+    }
+
+    .loading-spinner {
+        margin: .5rem 0;
+    }
+
+    &__header {
+        display: flex;
+        margin-bottom: .5rem;
+        align-items: center;
+
+        &__title {
+            margin: 0;
+            flex: 1;
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .button {
+            text-transform: uppercase;
+            font-size: .9rem;
+        }
+    }
+
+    &__footer {
+        padding-top: .5rem;
+
+        .button {
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+
+    $overflow-amount: 1rem; // give room for cards to scale
+    $padding: calc(calc(100vw - #{$wrapper-size}) / 2);
+    $size: calc(#{$wrapper-size} - #{$wrapper-padding});
+
+    &__container::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__container {
+        @include content-wrapper;
+        overflow-x: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
+        &:not(.video-list__container--vertical) {
+            @media (min-width: $wrapper-size) {
+                // padding-left: $overflow-amount;
+                // padding-right: $padding;
+                // margin: 0 0 0 calc(#{$padding} + #{$wrapper-padding} - #{$overflow-amount});
+                // max-width: calc(#{$size} + #{$padding});
+                padding: 0;
+                margin: 0;
+                max-width: unset;
+            }
+        }
+
+        &--vertical {
+            .video-list__videos {
+                padding-left: 0;
+                padding-right: 0;
+                display: grid;
+                gap: 2rem 1rem;
+                grid-template-columns: 1fr;
+
+                @media (min-width: $min-sm) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @media (min-width: $min-xl) {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .video-list__video {
+                    &, &:first-child, &:last-child {
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        min-width: unset;
+                        max-width: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    &__loading {
+        @media (max-width: $wrapper-size) {
+            padding: 0;
+        }
+    }
+
+    &__videos {
+        display: flex;
+        padding: $overflow-amount;
+
+        .video-list__video {
+            &:first-child {
+                // margin-left: -$overflow-amount;
+                margin-left: -1.5rem;
+
+                @media (min-width: $wrapper-size) {
+                    margin-left: $padding;
+                }
+            }
+            &:last-child {
+                margin-right: $overflow-amount;
+            }
+        }
+
+        &--categories {
+            .video-list__video__image {
+                &:after {
+                    content: unset;
+                }
+            }
+        }
+    }
+
+    &__video {
+        padding: 0 .5rem;
+        flex: 1;
+
+        $card-size: calc(#{$size} / 4);
+
+        min-width: $card-size;
+        max-width: $card-size;
+
+        @media (max-width: $max-sm) {
+            $card-size: 250px;
+            min-width: $card-size;
+            max-width: $card-size;
+        }
+
+        &:not(.video-list__video--tablet) {
+            @include interactive-card;
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                         supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        &--tablet {
+            min-width: calc(calc(1500px - 1.5rem) / 3);
+            max-width: calc(calc(1500px - 1.5rem) / 3);
+
+            .video-list__video__image img {
+                height: 300px;
+            }
+        }
+
+        &--live {
+            .video-list__video__image:after {
+                content: unset;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+
+            img {
+                border-radius: .5rem;
+                width: 100%;
+                display: block;
+                height: 235px;
+                object-fit: cover;
+
+                @media (max-width: $max-sm) {
+                    height: 175px;
+                }
+            }
+
+            &:after {
+                @include pseudo-material-icon('play_circle_outline', 4rem);
+                color: white;
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+                margin: auto;
+                opacity: 0;
+                transition: ease all .5s;
+                opacity: 1;
+            }
+        }
+
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        &__author,
+        &__footer,
+        &__dl {
+            display: flex;
+            align-items: center;
+            font-size: .9rem;
+            color: $material-grey-500;
+            margin-top: .75rem;
+
+            &--info {
+                font-weight: 900;
+            }
+        }
+
+        &__author {
+            &__image {
+                $image-size: 25px;
+
+                margin-right: .75rem;
+                width: $image-size;
+                min-width: $image-size;
+                height: $image-size;
+                object-fit: cover;
+                display: block;
+                border-radius: $image-size;
+            }
+        }
+
+        &__dl {
+            &__title {
+                &:after {
+                    content: ':';
+                }
+            }
+
+            &__value {
+                font-weight: 700;
+                font-style: italic;
+                margin-left: .25rem;
+                color: $material-grey-400;
+            }
+        }
+
+        &__footer {
+            line-height: 1.2;
+            display: flex;
+            justify-content: space-between;
+
+            @media (max-width: $max-sm) {
+                font-size: .8rem;
+            }
+
+            &__item {
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                i {
+                    font-size: 1.2rem;
+                    margin-right: .35rem;
+                }
+
+                + .video-list__video__footer__item {
+                    margin-left: .75rem;
+                }
+            }
+        }
+    }
+}

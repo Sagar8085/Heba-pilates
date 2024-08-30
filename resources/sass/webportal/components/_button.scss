@@ -1,0 +1,174 @@
+@mixin recolour-button ($color-name, $color, $text-color: white) {
+    .button.button--#{$color-name} {
+        color: $text-color;
+        border-color: $color;
+        background-color: $color;
+        outline-color: $color;
+
+        &.button--outline {
+            color: $color;
+            border-color: $color;
+            background-color: transparent;
+        }
+
+        &.button--transparent {
+            color: $color;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+}
+
+@include recolour-button ('red', #f75252);
+@include recolour-button ('orange', $orange);
+@include recolour-button ('grey', $material-grey-400);
+@include recolour-button ('purple', $primary);
+
+.button {
+    $btn-size: 40px;
+
+    background-color: $primary;
+    color: white;
+    box-shadow: none;
+    border: 2px solid transparent;
+    padding: 0 1.75em;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    border-radius: .25rem;
+    height: $btn-size;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    line-height: 1;
+    outline-color: $primary;
+    text-align: center;
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &--icon {
+        border-color: $primary;
+        color: $primary;
+        background-color: white;
+        height: $btn-size;
+        width: $btn-size;
+        min-width: $btn-size;
+        padding: 0;
+
+        img {
+            width: 100%;
+        }
+
+        .far, .fas {
+            font-size: 1.25rem;
+        }
+    }
+
+    &--full {
+        width: 100%;
+        flex: 1;
+
+        &--sm {
+            @media (max-width: $max-sm) {
+                width: 100%;
+            }
+        }
+    }
+
+    &--block {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    &--top {
+        margin-top: 1.5rem;
+    }
+
+    &--with-icon {
+        i {
+            margin-right: 0.5rem;
+        }
+
+        &--right {
+            i {
+                position: absolute;
+                right: 0.5rem;
+            }
+        }
+    }
+
+    &--outline {
+        background-color: transparent;
+        border-color: $primary;
+        color: $primary;
+    }
+
+    &--outline-red {
+        background-color: transparent;
+        border-color: $red;
+        color: $red;
+    }
+
+    &--green {
+        background-color: $green;
+    }
+
+    &--white {
+        background-color: white;
+        border-color: $primary;
+        color: $primary;
+    }
+
+    &--grey.button {
+        color: $material-grey-800;
+        background-color: $material-grey-300;
+        border-color: transparent;
+    }
+
+    &--transparent {
+        background-color: transparent;
+        border-color: transparent;
+        color: $primary;
+    }
+
+    &--link {
+        padding: 0;
+        height: auto;
+        width: auto;
+        min-width: unset;
+        text-decoration: underline;
+        color: $primary;
+        background-color: transparent;
+    }
+
+    &--blue {
+        background-color: $blue;
+        color: $white;
+    }
+
+    &--plain {
+        padding: 0;
+        height: auto;
+        width: auto;
+        min-width: unset;
+    }
+
+    &--large {
+        font-size: 1.1rem;
+        height: auto;
+        padding: 0.8em 2em;
+    }
+
+    &--bold {
+        font-weight: 700;
+    }
+}

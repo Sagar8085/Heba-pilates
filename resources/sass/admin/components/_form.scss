@@ -1,0 +1,322 @@
+.form-element {
+    input:not(.checkbox),
+    textarea, tr > textarea {
+        display: block;
+        width: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: none;
+        border-radius: 0;
+        background: #F7F7F7;
+        color: $black;
+        padding: .75rem 1rem;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: .85rem;
+        font-family: inherit;
+
+        &::placeholder {
+            color: $black;
+            opacity: .25;
+        }
+    }
+
+    &__button {
+        font-size: 80%;
+        float: right;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding-bottom: 10px;
+        margin-right: 200px;
+    }
+}
+
+input.checkbox {
+    display: inline!important;
+}
+
+textarea{
+        width: 100% ;
+        border: 0 !important;
+        outline: 0;  
+         font-family: inherit;
+}
+
+.checkbox_group {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+
+    label {
+        width: 8rem;
+        margin-left: 2rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            border-radius: 10px;
+            background: #EDEEF0;
+        }
+    }
+
+    input[type="checkbox"]:checked + label::before {
+        font-family: "Font Awesome 5 Free"; font-weight: 900; color: #364064; content: "\f00c";
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.checkbox__section {
+    // flex-direction: column;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    width: 100%;
+}
+
+.checkbox__column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+input[type="checkbox"] {
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    display: none;
+}
+
+.input-wrap {
+    position: relative;
+
+    i {
+        display: none;
+    }
+
+    &--loading {
+
+        i {
+            color: $purple;
+            display: inline;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1.5rem;
+            margin-top: -9px;
+        }
+
+    }
+
+}
+
+select {
+    display: block;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: #F7F7F7;
+    color: $black;
+    padding: .75rem 1rem;
+    font-size: .85rem;
+    border-radius: 6px;
+    // background-image: url('images/icons/chevron-down--purple.svg');
+    background-position: center right .75rem;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    cursor: pointer;
+}
+
+.form {
+
+    &--full {
+        display: inline-block;
+        width: 100%;
+        min-height: calc(100vh - 507px);
+        position: relative;
+        padding-bottom: calc(115px + 2.5rem);
+    }
+
+    &__headline {
+        width: 100%;
+        display: block;
+        font-weight: 900;
+        font-size: 1.5rem;
+        color: $white;
+        position: relative;
+    }
+
+    &__group {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        // border-bottom: 1px solid darken(rgb(59,70,110), 3%);
+
+        &:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        &--top {
+            margin-top: 1rem;
+
+            &-large {
+                margin-top: 2.5rem;
+            }
+        }
+    }
+
+    &__label {
+        display: block;
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: .85rem;
+        line-height: 1.25rem;
+        word-wrap: break-word;
+        word-break: normal;
+
+        span {
+            color: $red;
+            font-style: italic;
+            font-size: .85rem;
+            margin-left: 10px;
+        }
+
+        &--info {
+            color: $grey;
+            opacity: .75;
+        }
+
+        &--no-bottom {
+            margin-bottom: 0;
+        }
+
+        &--no-margin {
+
+            span {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__text {
+        display: block;
+        width: calc(100% - 3rem);
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: none;
+        border-radius: 0;
+        background: #F7F7F7;
+        color: $purple;
+        padding: 1rem 1.5rem;
+        border-radius: 6px;
+        font-size: .85rem;
+        min-height: calc(45px - 2rem);
+    }
+
+    &__save {
+        float: right;
+    }
+
+    &__footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #F7F7F7;
+        padding: 2.5rem 0;
+
+        .wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        &-col {
+            width: 50%;
+
+            &:nth-child(2) {
+                justify-content: flex-end;
+                text-align: right;
+            }
+        }
+
+        &-button {
+            outline: none;
+            border: none;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            font-weight: bold;
+            background: $white!important;
+            color: $purple;
+            text-align: center;
+            padding: .625rem 1rem;
+            border-radius: .25rem;
+            cursor: pointer;
+
+            &--save {
+                background: $purple!important;
+                color: $white;
+            }
+        }
+    }
+
+}
+
+
+.search-input {
+    min-width: 275px;
+    display: inline-flex;
+    position: relative;
+
+    &:before {
+        content: '\f002';
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: $primary;
+        position: absolute;
+        left: 0.8rem;
+        top: 0;
+        bottom: 0;
+        height: 20px;
+        margin: auto;
+    }
+
+    input {
+        box-shadow: none;
+        outline: 0;
+        width: 100%;
+        padding: 0.6rem 0.6rem 0.6rem 2.4rem;
+        border: 1px solid $material-grey-300;
+        border-radius: 0.25rem;
+        background-color: white;
+        font-size: 0.8rem;
+
+        &:focus {
+            border-color: $primary;
+        }
+    }
+}

@@ -1,0 +1,267 @@
+@mixin recolour-button ($color-name, $color, $text-color: white) {
+    .button.button--#{$color-name} {
+        color: $text-color;
+        border-color: $color;
+        background-color: $color;
+        outline-color: $color;
+
+        &.button--outline {
+            color: $color;
+            border-color: $color;
+            background-color: transparent;
+        }
+
+        &.button--transparent {
+            color: $color;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+}
+
+@include recolour-button ('red', #f75252);
+@include recolour-button ('orange', $orange);
+@include recolour-button ('grey', $material-grey-600);
+a .button{
+     text-decoration: none !important;
+}
+.button {
+    $btn-size: 40px;
+    background-color: $primary;
+    color: white;
+    box-shadow: none;
+    border: 2px solid transparent;
+    padding: 0.5em 1.75em;
+    font-size: 0.85rem;
+    // font-weight: 600;
+    letter-spacing: 0.2px;
+    border-radius: .25rem;
+    height: $btn-size;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    outline-color: $primary;
+
+
+    &--small {
+        height: 25px;
+        padding: 0.5rem 0.5rem;
+        font-size: .7rem;
+    }
+
+    &:hover {
+        background-color: darken($primary, 5%);
+    }
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &--top {
+        margin-top: 1.5rem;
+    }
+
+    &--icon.button {
+        border-color: $primary;
+        color: $primary;
+        background-color: white;
+        height: $btn-size;
+        width: $btn-size;
+        min-width: $btn-size;
+        padding: 0;
+
+        img {
+            width: 100%;
+        }
+
+        i {
+            margin: 0;
+            max-height: unset;
+        }
+
+        &.button--small {
+            $btn-size: 30px;
+
+            height: $btn-size;
+            width: $btn-size;
+            min-width: $btn-size;
+
+            .far, .fas {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &--full {
+        width: 100%;
+    }
+
+    &--block {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    &--with-icon.button {
+        i, img {
+            margin: 0 0.5rem 0 0;
+        }
+
+        i {
+            font-size: 1.2rem;
+            max-height: unset;
+        }
+
+        &.button--with-icon--right {
+            padding-right: 2.75rem;
+            i, img {
+                position: absolute;
+                right: .75rem;
+                top: 0;
+                bottom: 0;
+                height: 1em;
+                margin: auto;
+            }
+        }
+    }
+
+    &--red-outline {
+        background-color: transparent;
+        border-color: $red;
+        color: $red;
+
+        &:hover {
+            background-color: $red;
+            color: $white;
+        }
+    }
+
+    &--red {
+        background-color: $red;
+        border-color: $red;
+        color: white;
+
+        &:hover {
+            background-color: darken($red, 5%);
+        }
+    }
+
+    &--outline {
+        background-color: transparent;
+        border-color: $primary;
+        color: $primary;
+
+        &:hover {
+            background-color: rgb(23,181,200, 0.1);
+        }
+    }
+
+    &--green {
+        background-color: $green;
+
+        &:hover {
+            background-color: darken($green, 5%);
+        }
+    }
+
+    &--white {
+        background-color: white;
+        border-color: $primary;
+        color: $primary;
+    }
+
+    &--transparent.button {
+        background-color: transparent;
+        border-color: transparent;
+        color: $primary;
+    }
+
+    &--blue {
+        background-color: $blue;
+        color: $white;
+    }
+
+    img, i {
+        max-height: 80%;
+        max-height: 11px;
+        margin-left: 10px;
+    }
+
+    span,
+    img {
+        display: inline-block;
+        vertical-align: middle;
+
+        img {
+            height: 10px;
+        }
+    }
+
+    &__icon--left {
+        i, img {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+    }
+
+    &--plain {
+        padding: 0;
+        height: auto;
+    }
+}
+
+body {
+    --btn-size: 30px;
+}
+
+@mixin button-hover-state ($color: var(--primary-rgb)) {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: -10%;
+        margin: auto;
+        display: block;
+        width: 120%;
+        height: var(--btn-size);
+        border-radius: var(--btn-size);
+        transform: scale(.6);
+        opacity: 0;
+        transition: .2s ease-out;
+        background-color: rgba($color, .1);
+        @content;
+    }
+
+    &:not(:disabled):not(.button--disabled):hover {
+        box-shadow: none;
+
+        &::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+.router-link {
+    color: $blue;
+    font-weight: 600;
+    text-decoration: none;
+    width: fit-content;
+    @include button-hover-state($blue);
+
+    &--block {
+        display: block;
+        margin-bottom: .5rem;
+    }
+}

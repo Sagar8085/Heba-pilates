@@ -1,0 +1,148 @@
+.timeslot-table {
+    $border: 1px solid $material-grey-300;
+
+    &__header {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        margin-bottom: .5rem;
+
+        &__title {
+            margin: 0;
+            color: $primary;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .form-element {
+            max-width: 250px;
+
+            &__control--select {
+                margin-top: 0;
+            }
+        }
+
+        .pagination {
+            justify-self: flex-end;
+        }
+    }
+
+    &__table-container {
+        width: 100%;
+        overflow-x: auto;
+        border:  $border;
+        border-radius: .5rem;
+    }
+
+    &__table {
+        $cell-padding: .5rem;
+
+        width: 100%;
+
+        td,
+        th {
+            padding: $cell-padding;
+            vertical-align: middle;
+
+            &:not(:first-child) {
+                min-width: 150px;
+                border-left: $border;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        td:first-child {
+            width: 70px;
+            text-align: center;
+        }
+
+        tr {
+            &:first-child td {
+                padding-top: $cell-padding * 2;
+            }
+            &:last-child td {
+                padding-bottom: $cell-padding * 2;
+            }
+        }
+
+        th {
+            border-bottom: $border;
+
+            a {
+                &:hover {
+                    color: $primary;
+                    text-decoration: underline;
+                }
+            }
+
+            &.timeslot-table__table__heading--today {
+                color: $primary;
+                border-bottom: 3px solid $primary;
+            }
+        }
+
+        th,
+        &__time {
+            font-weight: 600;
+        }
+
+        &__tag {
+            background-color: $material-grey-300;
+            padding: 0 1rem;
+            border-radius: 10rem;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            cursor: default;
+            
+            &--interactive {
+                cursor: pointer;
+            }
+
+            &--green {
+                background-color: #D7F047;
+            }
+
+            &--blue {
+                background-color: $blue;
+            }
+
+            &.timeslot-table__table__tag--red {
+                background-color: $red;
+                color: $white;
+            }
+
+            &--orange {
+                background-color: $orange;
+            }
+
+            &.timeslot-table__table__tag--purple {
+                background-color: $purple;
+                color: $white;
+            }
+
+            &--black {
+                background-color: $black;
+                color: $white;
+            }
+        }
+
+        &__control-toggle {
+            display: block;
+            cursor: pointer;
+        }
+
+        &__controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: .25rem;
+        }
+    }
+}

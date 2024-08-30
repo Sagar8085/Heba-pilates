@@ -1,0 +1,96 @@
+.table {
+    width: 100%;
+    color: $material-grey-900;
+
+    &__container {
+        width: 100%;
+        overflow-x: auto;
+    }
+    &-list{
+        .active{
+            i{
+                color: #29BE87 !important;
+            }
+        }
+    }
+
+
+
+    tr,
+    thead {
+        border-bottom: 1px solid $grey;
+    }
+
+    &__heading {
+        color: $material-grey-700;
+        text-align: center;
+
+        &--title {
+            font-size: 1.25rem;
+            color: $material-grey-900;
+            text-align: left;
+            font-weight: 600;
+        }
+    }
+
+    &__heading,
+    &__cell {
+        padding: 1.5rem;
+        vertical-align: middle;
+        border-right: 1px solid transparent;
+    }
+
+    &__cell {
+        border-right-color: $grey;
+        transition: background-color .15s ease-out;
+
+        .block {
+            display: none;
+        }
+
+        &--selectable:hover,
+        &--selected {
+            background-color: #EDFDF7;
+            color: #29BE87;
+            cursor: pointer;
+        }
+
+        &--disabled:hover,
+        &--disabled {
+            cursor: not-allowed;
+            background-color: #eee;
+
+            .thumbs-up {
+                display: none;
+            }
+
+            .block {
+                display: inline;
+                color: #999;
+            }
+        }
+    }
+}
+
+.privileges-table {
+    .table__cell--selectable {
+        width: 150px;
+        text-align: center;
+
+        i {
+            opacity: 0;
+            transition: opacity .25s ease-out;
+            user-select: none;
+        }
+
+        &.table__cell--selected {
+            i {
+                opacity: 1;
+            }
+        }
+    }
+
+    .table__heading {
+        padding-top: .5rem;
+    }
+}

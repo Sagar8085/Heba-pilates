@@ -1,0 +1,48 @@
+@use 'sass:math';
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 1.5em;
+    font-size: .9rem;
+
+    &__toggle {
+        $size: 1.25em;
+
+        width: $size;
+        height: $size;
+        border-radius: $size;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: $primary;
+        will-change: transform, background-color;
+        transition: all .25s ease-out;
+    }
+
+    &__input {
+        $width: 2.5em;
+        position: relative;
+        background-color: $material-grey-200;
+        border-radius: 1em;
+        border: 1px solid $material-grey-300;
+        height: 1em;
+        width: $width;
+
+        input {
+            display: none;
+
+            &:checked ~ .toggle-switch__toggle {
+                background-color: $material-grey-400;
+                transform: translateX(math.div($width, 2));
+            }
+        }
+    }
+
+    &__label {
+        padding-right: .5em;
+    }
+}

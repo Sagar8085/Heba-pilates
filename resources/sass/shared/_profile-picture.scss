@@ -1,0 +1,86 @@
+@use 'sass:math';
+
+.profile-picture {
+    $picture-size: 40px;
+    $outline-size: 1rem;
+    
+    width: $picture-size;
+    min-width: $picture-size;
+    height: $picture-size;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 2;
+
+    &--interactive {
+        cursor: pointer;
+
+        &:after {
+            content: '';
+            width: calc(#{$picture-size} + #{$outline-size});
+            min-width: calc(#{$picture-size} + #{$outline-size});
+            height: calc(#{$picture-size} + #{$outline-size});
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.1);
+            position: absolute;
+            z-index: -1;
+            top: math.div(-$outline-size, 2);
+            left: math.div(-$outline-size, 2);
+            transform: scale(.75);
+            transition: transform .2s ease-out;
+        }
+
+        &:hover {
+            &:after {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &--large {
+        $picture-size-large: 75px;
+        width: $picture-size-large;
+        min-width: $picture-size-large;
+        height: $picture-size-large;
+        font-size: 2rem;
+
+        &:after {
+            width: calc(#{$picture-size-large} + #{$outline-size});
+            min-width: calc(#{$picture-size-large} + #{$outline-size});
+            height: calc(#{$picture-size-large} + #{$outline-size});
+        }
+    }
+
+    &--xlarge {
+        $picture-size-large: 120px;
+        width: $picture-size-large;
+        min-width: $picture-size-large;
+        height: $picture-size-large;
+        font-size: 3.5rem;
+
+        &:after {
+            width: calc(#{$picture-size-large} + #{$outline-size});
+            min-width: calc(#{$picture-size-large} + #{$outline-size});
+            height: calc(#{$picture-size-large} + #{$outline-size});
+        }
+    }
+
+    &--initials {
+        background-color: $grey--light;
+        text-transform: uppercase;
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: inherit;
+        border-radius: 100px;
+        font-size: 1rem;
+        font-weight: normal;
+    }
+}

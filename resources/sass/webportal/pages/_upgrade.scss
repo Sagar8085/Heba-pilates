@@ -1,0 +1,185 @@
+.upgrade {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 15rem);
+    align-items: center;
+    text-align: center;
+    padding: .5rem 0 10rem;
+
+    &__main {
+
+    }
+
+    &__title {
+        display: block;
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: 500;
+        color: $purple;
+    }
+
+    &__subtitle {
+        display: block;
+        margin: 2rem auto;
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        color: #97a3b5;
+        line-height: 1.75rem;
+        width: 92%;
+        max-width: 650px;
+
+        &--info {
+            // font-style: italic;
+            font-weight: bold;
+        }
+    }
+
+    &__boxes {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 2rem;
+
+        @media (max-width: 1000px) {
+            flex: none;
+            flex-direction: column;
+        }
+    }
+
+    &__payment-options {
+        margin-top: 2.5rem;
+
+        strong {
+            font-weight: bold;
+        }
+
+        .fa-spin {
+            color: $white;
+            font-size: 2rem;
+        }
+    }
+}
+
+
+.upgrade-box {
+    background: #ffffff;
+    border: 1px solid #663D7E;
+    padding: 1rem;
+    text-align: center;
+    margin: 0 1rem;
+    min-height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: ease all .25s;
+    position: relative;
+
+    @media (max-width: 1000px) {
+        width: calc(100% - 5rem);
+        margin: 1rem auto;
+    }
+
+    &__divider {
+        width: 100%;
+        margin: 10px auto;
+        border-top: 1px solid rgb(208, 208, 208);
+    }
+
+    &__title {
+        display: block;
+        text-transform: uppercase;
+        font-size: 1.75rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        // font-style: italic;
+        color: #5e5d5d;
+        transition: ease all .25s;
+    }
+
+    &__feature {
+        display: block;
+        text-transform: uppercase;
+        font-size: .7rem;
+        font-weight: 300;
+        // font-style: italic;
+        color: #5e5d5d;
+        margin-top: 1.75rem;
+        transition: ease all .25s;
+        margin-bottom: 1.25rem;
+        text-align: left;
+    }
+
+    &__subtitle {
+        display: block;
+        text-transform: uppercase;
+        font-size: .85rem;
+        font-weight: 300;
+        // font-style: italic;
+        color: $purple;
+        margin-top: .25rem;
+        transition: ease all .25s;
+        margin-bottom: 1.25rem;
+    }
+
+    &__month {
+        font-size: 12px;
+    }
+
+    &__price {
+        font-size: 2rem;
+        color: #5e5d5d;
+        font-weight: bold;
+        transition: ease all .25s;
+    }
+
+    &__price-total {
+        position: absolute;
+        bottom: .5rem;
+        right: .5rem;
+        // font-style: italic;
+        color: #999;
+        text-align: right;
+
+        .strike {
+            text-decoration: line-through;
+        }
+    }
+
+    &:hover {
+        background: lighten($purple, 10%);
+
+        .upgrade-box__title,
+        .upgrade-box__subtitle,
+        .upgrade-box__price,
+        .upgrade-box__price-total,
+        .upgrade-box__feature {
+            color: $white;
+        }
+    }
+
+    &--active {
+        background: $purple!important;
+
+        .upgrade-box__title,
+        .upgrade-box__subtitle,
+        .upgrade-box__price,
+        .upgrade-box__price-total,
+        .upgrade-box__feature {
+            color: $white;
+        }
+    }
+}
+
+.upgrade-box:nth-child(3) {
+    border: 1px solid #AC8500;
+}
+
+.popular img {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 40%
+}

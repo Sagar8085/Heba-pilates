@@ -1,0 +1,113 @@
+.session-list {
+    margin-top: 2rem;
+    $border-color: $material-grey-300;
+
+    &__item {
+        background-color: $card-color;
+
+        + .session-list__item {
+            margin-top: 2rem;
+        }
+
+        &__section {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            
+            .button + .button {
+                margin-left: .5rem;
+            }
+
+            @media (max-width: $max-xs) {
+                flex-direction: column;
+
+                .button {
+                    width: 100%;
+
+                    + .button {
+                        margin: .5rem 0 0 0;
+                    }
+                }
+            }
+
+            &--header {
+                @media (max-width: $max-md) {
+                    flex-direction: column;
+                }
+            }
+            
+
+            + .session-list__item__section {
+                border-top: 1px solid $border-color;
+            }
+        }
+
+        &__subsection {
+            &,
+            &__content {
+                display: flex;
+                flex-direction: column;
+            }
+
+            padding-right: 2rem;
+            width: 100%;
+
+            @media (max-width: $max-md) {
+                padding: 0 0 1.5rem 0;
+            }
+
+            &--row {
+                flex-direction: row;
+            }
+
+            + .session-list__item__subsection {
+                border-left: 1px solid $border-color; 
+                padding-left: 2rem;
+
+                @media (max-width: $max-md) {
+                    border-left: 0;
+                    padding: 1.5rem 0;
+                    border-top: 1px solid $border-color; 
+                }
+            }
+
+            &:last-of-type {
+                @media (max-width: $max-md) {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        &__heading {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: .25rem;
+        }
+
+        &__text {
+            color: $material-grey-600;
+            line-height: 1.5rem;
+
+            &--blue {
+                color: $blue;
+            }
+        }
+
+        &__image {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $primary;
+            color: white;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-right: 1rem;
+        }
+    }
+}
